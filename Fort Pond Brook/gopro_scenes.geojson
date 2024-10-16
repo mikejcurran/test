@@ -1,0 +1,2527 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 1"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.451345,
+          42.4605480999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4512911999722,
+          42.4605446999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4512385,
+          42.4605512999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 4"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4511636999722,
+          42.4605207999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4510989,
+          42.4605110999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4510489999722,
+          42.4605119
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4510022,
+          42.4605128999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4509644,
+          42.4605128999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4509024,
+          42.4605214999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4508514999722,
+          42.46052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4507847999722,
+          42.4605052
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4507878,
+          42.4604817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4507452,
+          42.4604661999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4507095,
+          42.4604354
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4506564999722,
+          42.4604247999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4506106999722,
+          42.4604129
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4505745,
+          42.4604203
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4505362999722,
+          42.4604002
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 19"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4504904,
+          42.4603859999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 20"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.450443,
+          42.4603757
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 21"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4503892,
+          42.4603636
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 22"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4503203999722,
+          42.4603473
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 23"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4502616999722,
+          42.4603129999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 24"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4502137,
+          42.4603121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 25"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4501735,
+          42.4602932999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 26"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4501266,
+          42.4603243999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 27"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4500641,
+          42.4603073999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 28"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4500031999722,
+          42.4602998
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 29"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4499136999722,
+          42.4602853999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4498434,
+          42.4602815
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 31"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4497776,
+          42.4602901
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 32"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4497276,
+          42.4602852
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 33"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4496924999722,
+          42.4602791
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 34"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4496465,
+          42.4602871
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 35"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4496,
+          42.460278
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 36"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4495596,
+          42.4602836999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 37"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4495196999722,
+          42.4602678999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 38"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4494665999722,
+          42.4602685999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 39"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4494172999722,
+          42.4602600999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 40"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4493695,
+          42.4602579
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 41"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4493204999722,
+          42.4602705
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 42"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4492967,
+          42.4602721999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 43"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4492852999722,
+          42.4602837999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 44"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4492366,
+          42.4602994999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 45"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4492093,
+          42.4602787
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 46"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4492122,
+          42.4602549
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 47"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4492031,
+          42.4602434
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 48"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4491531,
+          42.4602418999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 49"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4490995,
+          42.4602497999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 50"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4490605,
+          42.4602537999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 51"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4490066,
+          42.4602502999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 52"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4489573,
+          42.4602501999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 53"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4488987,
+          42.4602428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 54"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4488450999722,
+          42.4602428
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 55"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4487993999722,
+          42.4602276999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 56"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4487491999722,
+          42.4602235999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 57"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4486938,
+          42.4602141
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 58"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4486349,
+          42.460208
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 59"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4485913999722,
+          42.4602076999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 60"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4485518,
+          42.460202
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 61"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4484989,
+          42.4602026
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 62"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4484513999722,
+          42.4602
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 63"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4484053999722,
+          42.4602063
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 64"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4483627,
+          42.4601919999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 65"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4483005,
+          42.4601788
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 66"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4482454999722,
+          42.4601593
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 67"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4481868999722,
+          42.4601457999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 68"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4481389,
+          42.4601376999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 69"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4480975999722,
+          42.4601395999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 70"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4480633999722,
+          42.4601363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 71"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4480254,
+          42.460121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 72"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.44798,
+          42.4601050999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 73"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4479434999722,
+          42.4600794999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 74"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4478862999722,
+          42.4600685999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 75"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4478347999722,
+          42.4600500999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 76"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4477885999722,
+          42.4600287
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 77"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4477447,
+          42.4600146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 78"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4477044,
+          42.4600100999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 79"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4476525,
+          42.4599879
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 80"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4475996999722,
+          42.4599739
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 81"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4475532999722,
+          42.4599523999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 82"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4475082,
+          42.4599377999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 83"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.447456,
+          42.4599252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 84"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4474,
+          42.4599183999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 85"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4473492,
+          42.4599125
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 86"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.447288,
+          42.4599255999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 87"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4472279999722,
+          42.4599205
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 88"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4471831,
+          42.4599149
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 89"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.447118,
+          42.4599248999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 90"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4470711,
+          42.4599108999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 91"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4470115999722,
+          42.4599035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 92"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4469691999722,
+          42.4598865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 93"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4469236999722,
+          42.4598664
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 94"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4468748,
+          42.4598496999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 95"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4468504999722,
+          42.4598349999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 96"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4468236,
+          42.4598275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 97"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4467803,
+          42.4598251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 98"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4467422,
+          42.4598347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 99"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4467053999722,
+          42.4598167999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 100"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4466539,
+          42.4598032999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 101"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4466144999722,
+          42.4597912999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 102"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.446565,
+          42.4597758
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 103"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4465174999722,
+          42.4597825999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 104"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4464779,
+          42.4597817
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 105"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.446432,
+          42.4597813
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 106"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4464023,
+          42.4597818
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 107"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4463609,
+          42.4597848
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 108"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4463317999722,
+          42.4597841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 109"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4462728,
+          42.4597825999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 110"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4462151999722,
+          42.4597736999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 111"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4461495,
+          42.4597803999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 112"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4460895999722,
+          42.4597839999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 113"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.446043,
+          42.4597795
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 114"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4459994999722,
+          42.4597756
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 115"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4459664999722,
+          42.4597662999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 116"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4459183,
+          42.4597395999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 117"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4458809999722,
+          42.4597363
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 118"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4458534999722,
+          42.4597271
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 119"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4458345999722,
+          42.4597230999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 120"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4457957999722,
+          42.4597051
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 121"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4457641,
+          42.4596858999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 122"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4457239,
+          42.4596754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 123"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4457009,
+          42.4596564
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 124"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4456806999722,
+          42.4596303
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 125"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4456435999722,
+          42.4596112999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 126"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4455705,
+          42.4596111999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 127"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4455126999722,
+          42.4596015999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 128"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4454506,
+          42.4596054
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 129"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4453948999722,
+          42.4595993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 130"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4453369,
+          42.4595908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 131"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4453010999722,
+          42.4595760999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 132"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4452919999722,
+          42.4595675999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 133"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4452586999722,
+          42.4595638999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 134"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.445214,
+          42.4595665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 135"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4451573999722,
+          42.4595643999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 136"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4450884999722,
+          42.4595246
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 137"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4450187,
+          42.4595436999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 138"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4449556,
+          42.4595322999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 139"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4448874999722,
+          42.4595222
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 140"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4448648999722,
+          42.4595022
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 141"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4448232,
+          42.4594876999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 142"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4447954999722,
+          42.4594619
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 143"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4447664,
+          42.4594353
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 144"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4446970999722,
+          42.4594171
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 145"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4446307999722,
+          42.4594312999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 146"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4445807999722,
+          42.4594203999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 147"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4445510999722,
+          42.4594100999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 148"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4445266,
+          42.4594194
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 149"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4445044999722,
+          42.4594345
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 150"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4444538,
+          42.4594078
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 151"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4444450999722,
+          42.4593957
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 152"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4444368,
+          42.4594063999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 153"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4443964,
+          42.4594020999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 154"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4443646999722,
+          42.4593844999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 155"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4443196,
+          42.4593788999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 156"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4442753999722,
+          42.4593708
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 157"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4442343,
+          42.4593735999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 158"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4441786999722,
+          42.4593576999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 159"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4441223,
+          42.4593502
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 160"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4440759,
+          42.4593401999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 161"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4440253,
+          42.4593115999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 162"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4439641,
+          42.4592911
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 163"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4439236999722,
+          42.4592839
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 164"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4439095,
+          42.4592712
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 165"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4438892,
+          42.4592592999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 166"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4438619,
+          42.4592500999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 167"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4438379999722,
+          42.4592321
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 168"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.443803,
+          42.4592162
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 169"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4437407,
+          42.4592045999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 170"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4436663999722,
+          42.4592172999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 171"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4436259999722,
+          42.4592091999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 172"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4435792999722,
+          42.459211
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 173"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4435445999722,
+          42.4591883
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 174"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4435007999722,
+          42.4591662999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 175"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4434413,
+          42.4591471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 176"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4433882,
+          42.4591477999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 177"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4433396999722,
+          42.4591510999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 178"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4432963,
+          42.4591471
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 179"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4432532,
+          42.4591534999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 180"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4432089999722,
+          42.4591648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 181"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4431524,
+          42.4591849999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 182"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.443089,
+          42.4592106999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 183"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4430502999722,
+          42.4592355999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 184"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4430090999722,
+          42.4592681999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 185"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.442953,
+          42.4592906
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 186"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4429056,
+          42.4593076
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 187"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4428881,
+          42.4592985
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 188"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4428651999722,
+          42.4593082
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 189"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4428443,
+          42.4593188999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 190"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4428264,
+          42.4593253
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 191"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4428063999722,
+          42.4593261999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 192"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4427842999722,
+          42.4593344
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 193"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.44275,
+          42.4593320999722
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Scene 194"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -71.4427445999722,
+          42.4593363999722
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migration River Tours</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-image: URL('img/titlebar.png');
+			background-size: cover;
+			background-attachment: fixed;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+		        .section.examples {
+            background-color: #2e3b4e; /* Same as header background */
+            color: white; /* White text to match header */
+            padding: 10px 0;
+			margin: 0;
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2e3b4e;
+        }
+        .section.examples h2 {
+            color: white;
+			max-width: 1100px;
+			margin: 0 auto;
+            padding: 20px;/* Change heading color to white in "Our Work" section */
+        }
+        h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #2e3b4e;
+        }
+        .tour-list {
+            max-width: 1100px;
+			display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto;
+			padding: 0 20px;
+        }
+        .tour-item {
+            margin: 15px;
+            border: 2px solid #ccc;
+            padding: 10px;
+            width: 300px;
+            background-color: white;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+        .tour-item:hover {
+            transform: scale(1.05);
+        }
+        .tour-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+        .tour-item a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+        }
+        .tour-item a:hover {
+            color: #007BFF;
+        }
+	.tour-item h3, .tour-item p, .tour-item a {
+    color: #333; /* Darker text color for tour items */
+}
+        .pricing-table {
+            display: flex;
+            justify-content: space-around;
+            
+        }
+        .pricing-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+			justify-content: center;
+			align-items: center;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .pricing-card:hover {
+            transform: scale(1.05);
+        }
+		  .pricing-card ul {
+            list-style-type: disc; /* Bullet points */
+            padding-left: 20px; /* Space before bullet points */
+            text-align: left; /* Left-aligns the bullet points */
+            margin: 0 auto; /* Centers the ul within the content box */
+            max-width: 90%; /* Ensure the list doesn't stretch too far */
+        }
+		.pricing-card ul li {
+    margin-bottom: 10px; /* Adjust this value to increase/decrease spacing */
+}
+
+        .pricing-card h3 {
+            background-color: rgba(255, 255, 255, 0.8);
+			font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #2e3b4e;
+        }
+        .pricing-card p {
+            background-color: rgba(255, 255, 255, 0.8);
+			margin: 10px 0;
+        }
+        .pricing-card .price {
+            font-size: 2em;
+            color: #1e90ff;
+            margin: 20px 0;
+        }
+        .pricing-card .cta {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin-top: 20px;
+        }
+        footer p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>RiverView</h1>
+    <p>Leverage immersive virtual tours and professional geomorphic assessments for better river management and stakeholder engagement</p>
+</header>
+
+<div class="container">
+
+    <!-- Project Goal Section -->
+    <section class="section">
+        <h2>Our Mission</h2>
+        <p>We provide municipalities, consulting firms, and other organizations with immersive virtual tours that showcase environmental and geomorphic data. From basic tours to in-depth geomorphic assessments, we help you visualize, quantify, and understand the landscape. 
+		
+		Our intuitive approach to environmental data visualization will help the public engage with their natural and recreation resources, help stakeholders and resource managers better understand these dynamic systems, and smooth collaboration on river projects by bringing an interactive model of the site to your desktop.</p>
+    </section>
+
+    <!-- Pricing Options Section -->
+    <section class="section">
+        <h2>Our Services</h2>
+        <div class="pricing-table">
+            <div class="pricing-card">
+                <h3>Basic Tour</h3>
+                <p>Includes 360-degree panoramas with basic navigation and information hotspots. The tour will include: <ul>
+                        <li>High-resolution Imagery</li>
+                        <li>Map Overlay</li>
+                        <li>Identification of Important Markers</li>
+						</p>
+                
+            </div>
+			<div class="pricing-card"style="background-image: url('img/x.png'); background-size: cover;">
+                <h3>Geomorphic Assessment</h3>
+                <p>Comprehensive tours with professional geomorphic data integration and reporting. We can provide: <ul>
+                        
+                        <li>Channel Migration Zone Delineation</li>
+                        <li>Channel Migration Assessment</li>
+						<li>Reach Delineation</li>
+						<li>Bank/Bed Characterization</li>
+						<li>Flood/Erosion Risk Assessment</li>
+						<li>Restoration Potential</li></p>
+             
+            </div>
+            <div class="pricing-card">
+                <h3>Customized Tour</h3>
+                <p>How else would you like to characterize your site? We can develop and integrate: <ul>
+                        <li>Bathymmetry</li>
+                        <li>Drone Imagery</li>
+                        <li>Historical Aerial Imagery</li>
+						<li>Historical Maps</li>
+						<li>Channel Profile</li>
+						<li>Digital Elevation Model</li>
+						<li>Relative Elevation Model</li>
+						<li>DEM Differencing</li>
+						<li>...And More</li>
+                    </ul></p>
+                
+            </div>
+            
+        </div>
+    </section>
+</div>	
+
+    <!-- Example Projects Section -->
+    <section class="section examples">
+        <h2>Examples</h2>
+        <div class="tour-list">
+            <div class="tour-item">
+                <img src="img/Mystic_Thumb.jpg" alt="Mystic River Tour">
+                <h3>Mystic River</h3>
+                <p>East Arlington, MA</p>
+                <a href="Mystic River/index.html">View Tour</a>
+            </div>
+            <div class="tour-item">
+                <img src="img/FPB.png" alt="Fort Pond Brook Dam Removal">
+                <h3>Fort Pond Brook Dam Removal</h3>
+                <p>Acton, MA</p>
+                <a href="Fort Pond Brook/index.html">View Tour</a>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    <p>For more effective river management and engagement</p>
+    <p><strong>Created by: Michael Curran, MSc., LG. Fluvial Geomorphologist. 2024</strong></p>
+</footer>
+
+</body>
+</html>

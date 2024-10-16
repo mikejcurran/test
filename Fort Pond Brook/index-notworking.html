@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Fort Pond Brook Dam Removal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<style> @-ms-viewport { width: device-width; } </style>
+<link rel="stylesheet" href="vendor/reset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-geotiff/dist/leaflet-geotiff.js"></script>
+<script src="https://unpkg.com/leaflet-geotiff/dist/leaflet-geotiff-plotty.js"></script>
+<script src="https://unpkg.com/chroma-js/chroma.min.js"></script>
+<script src="https://unpkg.com/geotiff@1.0.0-beta.9/dist/geotiff.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/roblabs/leaflet-mbtiles/Leaflet.MBTiles.js"></script>
+
+
+
+<!-- Add your custom styling -->
+<style>
+  #dischargeDataLink {
+      position: absolute;
+      bottom: 40px;  /* Adjust to place below your map */
+      right: 10px;   /* Adjust the right side position */
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+      z-index: 1001;  /* Ensure it appears above other elements */
+  }
+  #dischargeDataLink:hover {
+      text-decoration: underline;
+  }
+  
+   #GeologyLegendLink {
+      position: absolute;
+      bottom: 10px;  /* Adjust to place below your map */
+      right: 10px;   /* Adjust the right side position */
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+      z-index: 1001;  /* Ensure it appears above other elements */
+  }
+  #GeologyLegendLink:hover {
+      text-decoration: underline;
+  }
+  
+  #welcomeBox {
+  position: absolute;
+  bottom: 10px;
+  left: 130px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.8);  /* White background with slight transparency */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);    /* Subtle shadow for a pop-out effect */
+  font-family: Arial, sans-serif;
+  z-index: 1001;  /* Ensure it's above other elements */
+}
+
+#welcomeBox h2 {
+  text-align: center;   /* Center the "Welcome!" title */
+  margin-top: 0 0 5px 0;
+  color: #2E3B4E
+}
+
+#welcomeBox p {
+  text-align: left;     /* Left-align the rest of the text */
+  margin: 0 0 10px 0;   /* Adjust margins to space out paragraphs */
+  font-size: 14px;      /* Optional: adjust font size for readability */
+  color: #2E3B4E
+}
+
+#mapContainer {
+            position: absolute;
+            top: 35		px;
+            right: 3px;
+            z-index: 1000;
+        }
+        #longProfileContainer {
+            position: absolute;
+            left: 130px;
+            top: 35px;
+            z-index: 1000;
+        }
+        #toggleLongProfile, #toggleMap {
+            position: absolute;
+            z-index: 1001;
+        }
+        #toggleLongProfile {
+            left: 130px;
+            top: 40px;
+        }
+        #toggleMap {
+            right: 80px;
+            top: 55px;
+        }                                          
+
+</style>
+</head>
+<body class="multiple-scenes ">
+
+<!-- Link to USGS Real-time discharge data -->
+<a id="dischargeDataLink" href="https://waterdata.usgs.gov/nwis/inventory?site_no=01097270&agency_cd=USGS" target="_blank">
+    Historic Data: USGS
+</a>
+
+<!-- Link to Geology Legend data -->
+<a id="GeologyLegendLink" href="https://gis-prod.digital.mass.gov/geoserver/wms?request=GetLegendGraphic&format=image/png&layer=massgis:GISDATA.SURFGEO24K_MAPUNIT_POLY" target="_blank">
+    Surficial Geology Legend
+</a>
+ <button id="toggleMap">Show Map</button>
+ <button id="toggleLongProfile">Toggle Long Profile</button>
+    <div id="longProfileContainer" style="display: none;">
+        <img src="LongProfile.png" alt="Long Profile" style="max-width: 3564px; max-height: 1768px;">
+    </div>
+
+
+<div id="welcomeBox">
+  <h2>Welcome!</h2>
+  <p>Use your mouse to click and drag around the scene, and click the arrows, the dots on the map, or the scene list on the left to navigate upstream or downstream.</p>
+  <p>To toggle layers in the map, use the icon in the top right. If you'd like to see historic field measurements and water quality data for Fort Pond Brook from the USGS, use the link in the bottom right of the page.</p>
+  <p>Be sure to click on the information icons for descriptions of important features.</p>
+</div>
+
+<div id="pano"></div>
+
+<div id="sceneList">
+  <ul class="scenes">
+    
+      <a href="javascript:void(0)" class="scene" data-id="0-gsab0028">
+        <li class="text">GSAB0028</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="1-gsab0029">
+        <li class="text">GSAB0029</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="2-gsab0030">
+        <li class="text">GSAB0030</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="3-gsab0031">
+        <li class="text">GSAB0031</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="4-gsab0032">
+        <li class="text">GSAB0032</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="5-gsab0033">
+        <li class="text">GSAB0033</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="6-gsab0034">
+        <li class="text">GSAB0034</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="7-gsab0035">
+        <li class="text">GSAB0035</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="8-gsab0036">
+        <li class="text">GSAB0036</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="9-gsab0037">
+        <li class="text">GSAB0037</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="10-gsab0038">
+        <li class="text">GSAB0038</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="11-gsab0039">
+        <li class="text">GSAB0039</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="12-gsab0040">
+        <li class="text">GSAB0040</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="13-gsab0041">
+        <li class="text">GSAB0041</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="14-gsab0042">
+        <li class="text">GSAB0042</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="15-gsab0043">
+        <li class="text">GSAB0043</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="16-gsab0044">
+        <li class="text">GSAB0044</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="17-gsab0045">
+        <li class="text">GSAB0045</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="18-gsab0046">
+        <li class="text">GSAB0046</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="19-gsab0047">
+        <li class="text">GSAB0047</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="20-gsab0048">
+        <li class="text">GSAB0048</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="21-gsab0049">
+        <li class="text">GSAB0049</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="22-gsab0050">
+        <li class="text">GSAB0050</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="23-gsab0051">
+        <li class="text">GSAB0051</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="24-gsab0052">
+        <li class="text">GSAB0052</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="25-gsab0053">
+        <li class="text">GSAB0053</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="26-gsab0054">
+        <li class="text">GSAB0054</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="27-gsab0055">
+        <li class="text">GSAB0055</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="28-gsab0056">
+        <li class="text">GSAB0056</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="29-gsab0057">
+        <li class="text">GSAB0057</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="30-gsab0058">
+        <li class="text">GSAB0058</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="31-gsab0059">
+        <li class="text">GSAB0059</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="32-gsab0060">
+        <li class="text">GSAB0060</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="33-gsab0061">
+        <li class="text">GSAB0061</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="34-gsab0062">
+        <li class="text">GSAB0062</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="35-gsab0063">
+        <li class="text">GSAB0063</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="36-gsab0064">
+        <li class="text">GSAB0064</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="37-gsab0065">
+        <li class="text">GSAB0065</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="38-gsab0066">
+        <li class="text">GSAB0066</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="39-gsab0067">
+        <li class="text">GSAB0067</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="40-gsab0068">
+        <li class="text">GSAB0068</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="41-gsab0069">
+        <li class="text">GSAB0069</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="42-gsab0070">
+        <li class="text">GSAB0070</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="43-gsab0071">
+        <li class="text">GSAB0071</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="44-gsab0072">
+        <li class="text">GSAB0072</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="45-gsab0073">
+        <li class="text">GSAB0073</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="46-gsab0074">
+        <li class="text">GSAB0074</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="47-gsab0075">
+        <li class="text">GSAB0075</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="48-gsab0076">
+        <li class="text">GSAB0076</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="49-gsab0077">
+        <li class="text">GSAB0077</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="50-gsab0078">
+        <li class="text">GSAB0078</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="51-gsab0079">
+        <li class="text">GSAB0079</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="52-gsab0080">
+        <li class="text">GSAB0080</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="53-gsab0081">
+        <li class="text">GSAB0081</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="54-gsab0082">
+        <li class="text">GSAB0082</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="55-gsab0083">
+        <li class="text">GSAB0083</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="56-gsab0084">
+        <li class="text">GSAB0084</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="57-gsab0085">
+        <li class="text">GSAB0085</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="58-gsab0086">
+        <li class="text">GSAB0086</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="59-gsab0087">
+        <li class="text">GSAB0087</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="60-gsab0088">
+        <li class="text">GSAB0088</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="61-gsab0089">
+        <li class="text">GSAB0089</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="62-gsab0090">
+        <li class="text">GSAB0090</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="63-gsab0091">
+        <li class="text">GSAB0091</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="64-gsab0092">
+        <li class="text">GSAB0092</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="65-gsab0093">
+        <li class="text">GSAB0093</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="66-gsab0094">
+        <li class="text">GSAB0094</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="67-gsab0095">
+        <li class="text">GSAB0095</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="68-gsab0096">
+        <li class="text">GSAB0096</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="69-gsab0097">
+        <li class="text">GSAB0097</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="70-gsab0098">
+        <li class="text">GSAB0098</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="71-gsab0099">
+        <li class="text">GSAB0099</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="72-gsab0100">
+        <li class="text">GSAB0100</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="73-gsab0101">
+        <li class="text">GSAB0101</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="74-gsab0102">
+        <li class="text">GSAB0102</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="75-gsab0103">
+        <li class="text">GSAB0103</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="76-gsab0104">
+        <li class="text">GSAB0104</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="77-gsab0105">
+        <li class="text">GSAB0105</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="78-gsab0106">
+        <li class="text">GSAB0106</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="79-gsab0107">
+        <li class="text">GSAB0107</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="80-gsab0108">
+        <li class="text">GSAB0108</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="81-gsab0109">
+        <li class="text">GSAB0109</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="82-gsab0110">
+        <li class="text">GSAB0110</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="83-gsab0111">
+        <li class="text">GSAB0111</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="84-gsab0112">
+        <li class="text">GSAB0112</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="85-gsab0113">
+        <li class="text">GSAB0113</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="86-gsab0114">
+        <li class="text">GSAB0114</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="87-gsab0115">
+        <li class="text">GSAB0115</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="88-gsab0116">
+        <li class="text">GSAB0116</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="89-gsab0117">
+        <li class="text">GSAB0117</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="90-gsab0118">
+        <li class="text">GSAB0118</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="91-gsab0119">
+        <li class="text">GSAB0119</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="92-gsab0120">
+        <li class="text">GSAB0120</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="93-gsab0121">
+        <li class="text">GSAB0121</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="94-gsab0122">
+        <li class="text">GSAB0122</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="95-gsab0123">
+        <li class="text">GSAB0123</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="96-gsab0124">
+        <li class="text">GSAB0124</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="97-gsab0125">
+        <li class="text">GSAB0125</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="98-gsab0126">
+        <li class="text">GSAB0126</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="99-gsab0127">
+        <li class="text">GSAB0127</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="100-gsab0128">
+        <li class="text">GSAB0128</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="101-gsab0129">
+        <li class="text">GSAB0129</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="102-gsab0130">
+        <li class="text">GSAB0130</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="103-gsab0131">
+        <li class="text">GSAB0131</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="104-gsab0132">
+        <li class="text">GSAB0132</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="105-gsab0133">
+        <li class="text">GSAB0133</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="106-gsab0134">
+        <li class="text">GSAB0134</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="107-gsab0135">
+        <li class="text">GSAB0135</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="108-gsab0136">
+        <li class="text">GSAB0136</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="109-gsab0137">
+        <li class="text">GSAB0137</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="110-gsab0138">
+        <li class="text">GSAB0138</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="111-gsab0139">
+        <li class="text">GSAB0139</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="112-gsab0140">
+        <li class="text">GSAB0140</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="113-gsab0141">
+        <li class="text">GSAB0141</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="114-gsab0142">
+        <li class="text">GSAB0142</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="115-gsab0143">
+        <li class="text">GSAB0143</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="116-gsab0144">
+        <li class="text">GSAB0144</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="117-gsab0145">
+        <li class="text">GSAB0145</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="118-gsab0146">
+        <li class="text">GSAB0146</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="119-gsab0147">
+        <li class="text">GSAB0147</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="120-gsab0148">
+        <li class="text">GSAB0148</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="121-gsab0149">
+        <li class="text">GSAB0149</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="122-gsab0150">
+        <li class="text">GSAB0150</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="123-gsab0151">
+        <li class="text">GSAB0151</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="124-gsab0152">
+        <li class="text">GSAB0152</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="125-gsab0153">
+        <li class="text">GSAB0153</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="126-gsab0154">
+        <li class="text">GSAB0154</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="127-gsab0155">
+        <li class="text">GSAB0155</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="128-gsab0156">
+        <li class="text">GSAB0156</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="129-gsab0157">
+        <li class="text">GSAB0157</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="130-gsab0158">
+        <li class="text">GSAB0158</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="131-gsab0159">
+        <li class="text">GSAB0159</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="132-gsab0160">
+        <li class="text">GSAB0160</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="133-gsab0161">
+        <li class="text">GSAB0161</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="134-gsab0162">
+        <li class="text">GSAB0162</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="135-gsab0163">
+        <li class="text">GSAB0163</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="136-gsab0164">
+        <li class="text">GSAB0164</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="137-gsab0165">
+        <li class="text">GSAB0165</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="138-gsab0166">
+        <li class="text">GSAB0166</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="139-gsab0167">
+        <li class="text">GSAB0167</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="140-gsab0168">
+        <li class="text">GSAB0168</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="141-gsab0169">
+        <li class="text">GSAB0169</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="142-gsab0170">
+        <li class="text">GSAB0170</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="143-gsab0171">
+        <li class="text">GSAB0171</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="144-gsab0172">
+        <li class="text">GSAB0172</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="145-gsab0173">
+        <li class="text">GSAB0173</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="146-gsab0174">
+        <li class="text">GSAB0174</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="147-gsab0175">
+        <li class="text">GSAB0175</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="148-gsab0176">
+        <li class="text">GSAB0176</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="149-gsab0177">
+        <li class="text">GSAB0177</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="150-gsab0178">
+        <li class="text">GSAB0178</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="151-gsab0179">
+        <li class="text">GSAB0179</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="152-gsab0180">
+        <li class="text">GSAB0180</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="153-gsab0181">
+        <li class="text">GSAB0181</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="154-gsab0182">
+        <li class="text">GSAB0182</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="155-gsab0183">
+        <li class="text">GSAB0183</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="156-gsab0184">
+        <li class="text">GSAB0184</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="157-gsab0185">
+        <li class="text">GSAB0185</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="158-gsab0186">
+        <li class="text">GSAB0186</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="159-gsab0187">
+        <li class="text">GSAB0187</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="160-gsab0188">
+        <li class="text">GSAB0188</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="161-gsab0189">
+        <li class="text">GSAB0189</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="162-gsab0190">
+        <li class="text">GSAB0190</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="163-gsab0191">
+        <li class="text">GSAB0191</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="164-gsab0192">
+        <li class="text">GSAB0192</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="165-gsab0193">
+        <li class="text">GSAB0193</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="166-gsab0194">
+        <li class="text">GSAB0194</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="167-gsab0195">
+        <li class="text">GSAB0195</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="168-gsab0196">
+        <li class="text">GSAB0196</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="169-gsab0197">
+        <li class="text">GSAB0197</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="170-gsab0198">
+        <li class="text">GSAB0198</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="171-gsab0199">
+        <li class="text">GSAB0199</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="172-gsab0200">
+        <li class="text">GSAB0200</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="173-gsab0201">
+        <li class="text">GSAB0201</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="174-gsab0202">
+        <li class="text">GSAB0202</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="175-gsab0203">
+        <li class="text">GSAB0203</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="176-gsab0204">
+        <li class="text">GSAB0204</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="177-gsab0205">
+        <li class="text">GSAB0205</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="178-gsab0206">
+        <li class="text">GSAB0206</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="179-gsab0207">
+        <li class="text">GSAB0207</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="180-gsab0208">
+        <li class="text">GSAB0208</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="181-gsab0209">
+        <li class="text">GSAB0209</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="182-gsab0210">
+        <li class="text">GSAB0210</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="183-gsab0211">
+        <li class="text">GSAB0211</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="184-gsab0212">
+        <li class="text">GSAB0212</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="185-gsab0213">
+        <li class="text">GSAB0213</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="186-gsab0214">
+        <li class="text">GSAB0214</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="187-gsab0215">
+        <li class="text">GSAB0215</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="188-gsab0216">
+        <li class="text">GSAB0216</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="189-gsab0217">
+        <li class="text">GSAB0217</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="190-gsab0218">
+        <li class="text">GSAB0218</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="191-gsab0219">
+        <li class="text">GSAB0219</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="192-gsab0220">
+        <li class="text">GSAB0220</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="193-gsab0221">
+        <li class="text">GSAB0221</li>
+      </a>
+    
+  </ul>
+</div>
+
+<script>
+  // Get all the anchor elements that represent the scenes
+  const sceneLinks = document.querySelectorAll("#sceneList a.scene");
+
+  // Iterate through each anchor element and update the text
+  sceneLinks.forEach((scene, index) => {
+    // Get the <li> element (child of the <a> element)
+    const textElement = scene.querySelector(".text");
+
+    // Set the text content to a sequential number
+    textElement.textContent = (index + 1).toString();
+  });
+</script>
+
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
+</div>
+
+<a href="javascript:void(0)" id="autorotateToggle">
+  <img class="icon off" src="img/play.png">
+  <img class="icon on" src="img/pause.png">
+</a>
+
+<a href="javascript:void(0)" id="fullscreenToggle">
+  <img class="icon off" src="img/fullscreen.png">
+  <img class="icon on" src="img/windowed.png">
+</a>
+
+<a href="javascript:void(0)" id="sceneListToggle">
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
+</a>
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+  <img class="icon" src="img/up.png">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
+
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
+
+<script src="data.js"></script>
+<script src="index.js"></script>
+
+
+
+<div id="mapContainer" style="position: relative;">
+    <div id="map" style="width: 600px; height: 500px; position: absolute; top: 20px; right: 5px; z-index: 1000;"></div>
+</div>
+
+<script>
+// This function will be called after index.js has run
+    function initializeUI() {
+	setupToggleProfileButton();
+        var toggleLongProfileButton = document.getElementById('toggleLongProfile');
+        var longProfileContainer = document.getElementById('longProfileContainer');
+        var toggleMapButton = document.getElementById('toggleMap');
+        var mapContainer = document.getElementById('mapContainer');
+
+        if (toggleLongProfileButton && longProfileContainer) {
+            toggleLongProfileButton.addEventListener('click', function() {
+                if (longProfileContainer.style.display === 'none') {
+                    longProfileContainer.style.display = 'block';
+                    toggleLongProfileButton.textContent = 'Hide Long Profile';
+                } else {
+                    longProfileContainer.style.display = 'none';
+                    toggleLongProfileButton.textContent = 'Show Long Profile';
+                }
+            });
+        } else {
+            console.error('Long Profile elements not found');
+        }
+
+        if (toggleMapButton && mapContainer) {
+            toggleMapButton.addEventListener('click', function() {
+                if (mapContainer.style.display === 'none') {
+                    mapContainer.style.display = 'block';
+                    toggleMapButton.textContent = 'Hide Map';
+                    if (window.map && typeof window.map.invalidateSize === 'function') {
+                        window.map.invalidateSize();
+                    }
+                } else {
+                    mapContainer.style.display = 'none';
+                    toggleMapButton.textContent = 'Show Map';
+                }
+            });
+        } else {
+            console.error('Map elements not found');
+        }
+    }
+
+    // Check if document is already loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initializeUI);
+    } else {
+        initializeUI();
+    }
+
+
+// MassGIS WMS layers setup
+var massGISWMSUrl = "https://gis-prod.digital.mass.gov/geoserver/wms";
+
+// Add MassMapper WMS layer
+var massMapperWMS = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.IMG_SHADEDRELIEF_LIDAR',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Define the different map layers
+var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+});
+
+var satelliteLayer = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google'
+});
+
+
+// Add the DF__MIGRATORY_HABITAT_ARC layer
+var smeltSpawningHabitat = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.DF_MIGRATORY_HABITAT_ARC',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Add the habitat layer
+var smeltSpawningHabitat = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.IMG_ELEV_LIDAR_INT',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Add the Dams layer
+var Dams = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.DAMS_PT',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Add the geology layer
+var geologylayer = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.SURFGEO24K_MAPUNIT_POLY',
+    format: 'image/png',
+    transparent: true,
+	opacity: 0.5,
+    attribution: 'MassGIS'
+});
+
+// Add the new Shaded Relief ArcGIS layer
+var shadedReliefLayer = L.tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/LiDAR_ShadedRelief/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Shaded Relief &copy; <a href="https://www.arcgis.com/home/item.html?id=5fb17dfad618421f8d2513a805a2a7b5">ArcGIS</a>'
+});
+  
+// Initialize the Leaflet map
+var map = L.map('map', {
+  center: [42.459903, -71.446741],  // Default location
+  zoom: 15,                     // Default zoom level
+  layers: [shadedReliefLayer]  // Layers that are visible on load
+});
+	
+// Add the DEM layer
+var demLayer = L.tileLayer('https://rivertours.s3.us-east-2.amazonaws.com/extracted_tiles/{z}/{x}/{y}.png', {
+    maxZoom: 25,
+	tms: true,
+	opacity: 0.6,
+    attribution: 'DEM Data &copy; Your Source'
+});
+
+function addGeoJSONToMap(map) {
+    // Replace with your actual S3 URL
+    var geoJSONUrl = 'https://rivertours.s3.us-east-2.amazonaws.com/POIs.geojson';
+
+    // Fetch and add the GeoJSON to the map
+    fetch(geoJSONUrl)
+        .then(response => response.json())
+        .then(data => {
+            var poiLayer = L.geoJSON(data, {
+                pointToLayer: function (feature, latlng) {
+                    return L.circleMarker(latlng, {
+                        radius: 8,
+                        fillColor: "#ff7800",
+                        color: "#000",
+                        weight: 1,
+                        opacity: 1,
+                        fillOpacity: 0.8
+                    });
+                },
+                onEachFeature: function (feature, layer) {
+                    // Add labels
+                    if (feature.properties && feature.properties.NAME) {
+                        layer.bindTooltip(feature.properties.NAME, {permanent: true, direction: 'center'});
+                    }
+                }
+            }).addTo(map);
+
+            // Add the layer to the layer control
+            layerControl.addOverlay(poiLayer, "Points of Interest");
+        });
+}
+addGeoJSONToMap(map);
+
+// Fetch the GPS data from the JSON file
+fetch('gps_data.json')
+  .then(response => response.json())
+  .then(gpsData => {
+    gpsData.forEach((entry, index) => {
+      if (entry.GPSLatitude && entry.GPSLongitude) {
+        // Create a marker object with lat, lon, title, and sceneId
+        var marker = {
+          lat: entry.GPSLatitude,
+          lon: entry.GPSLongitude,
+          title: `Scene ${index + 1}`,
+          // Construct sceneId assuming format like "0-gsab0028"
+          sceneId: `${index}-gsab${(index + 28).toString().padStart(4, '0')}`
+        };
+
+        // Add the marker to the map
+        L.circleMarker([marker.lat, marker.lon], {
+          radius: 5,
+          fillColor: "#3388ff",
+          color: "#3388ff",
+          weight: 1,
+          opacity: 1,
+          fillOpacity: 0.8
+        })
+        .addTo(map)
+        .bindPopup(marker.title) // Bind a popup with the marker title
+        .on('click', function() {
+          // Directly switch to the clicked scene
+          switchToScene(marker.sceneId);
+        });
+      }
+    });
+  })
+  .catch(error => console.error('Error loading GPS data:', error));
+
+
+function switchToScene(sceneId) {
+  var scene = findSceneById(sceneId);
+  if (scene) {
+    scene.view.setParameters(scene.data.initialViewParameters);
+    scene.scene.switchTo(); // Switch scene using the global viewer
+  } else {
+    console.error('Scene not found:', sceneId);
+  }
+}
+
+
+// Marker style settings for small circle markers
+var markerStyle = {
+  radius: 5,  // Small circle size
+  fillColor: "#3388ff",  // Customize circle fill color
+  color: "#3388ff",  // Customize circle border color
+  weight: 1,
+  opacity: 1,
+  fillOpacity: 0.8
+};
+
+// Define the base layers (to be toggled)
+var baseMaps = {
+    "OpenStreetMap": osmLayer,
+    "Satellite View": satelliteLayer,
+    "Hillshade": shadedReliefLayer
+};
+
+// Define the overlay layers initially (even if some layers like GeoJSON are not yet loaded)
+var overlayLayers = {
+    "Migratory Fish Habitat": smeltSpawningHabitat,
+    "Dams": Dams,
+	"Digital Elevation Model": demLayer,
+	"Surficial Geology": geologylayer 
+};
+
+// Add the default layer (OpenStreetMap) to the map
+osmLayer.addTo(map);
+
+// Add the layer control to the map initially with just the baseMaps and empty overlayLayers
+var layerControl = L.control.layers(baseMaps, overlayLayers).addTo(map);
+
+
+// Add a custom legend control
+var legend = L.control({ position: "topright" });
+
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML = "<h4>Legend</h4>";  // Initial legend title
+  return div;
+};
+
+// Function to update the legend based on the visible layer
+function updateLegend(layerName) {
+  // Make sure the legend div exists before trying to update it
+  var div = document.querySelector('.legend');
+  
+  if (!div) {
+    console.error("Legend div not found.");
+    return; // Exit if the legend div doesn't exist
+  }
+
+  // Clear the current legend content
+  div.innerHTML = "<h4>Legend</h4>";
+
+
+  // GeoJSON layer legend
+  if (layerName === 'Historic Channels') {
+    div.innerHTML += '<i style="background: rgba(173, 216, 230, 0.5); border: 1px solid #808080;"></i> 1978 (Green)<br>';
+    div.innerHTML += '<i style="background: rgba(255, 160, 160, 0.5); border: 1px solid #808080;"></i> 1955 (Red)<br>';
+    div.innerHTML += '<i style="background: rgba(70, 130, 180, 0.5); border: 1px solid #808080;"></i> 1939 (Blue)<br>';
+  }
+
+  // WMS layer: Migratory Habitat Legend
+  if (layerName === 'Migratory Fish Habitat') {
+    div.innerHTML += "<img src='https://gis-prod.digital.mass.gov/geoserver/wms?request=GetLegendGraphic&format=image/png&layer=massgis:GISDATA.DF_MIGRATORY_HABITAT_ARC' alt='Migratory Habitat Legend'>";
+  }
+  
+  // Dams layer legend
+  if (layerName === 'Dams') {
+    div.innerHTML += "<img src='https://gis-prod.digital.mass.gov/geoserver/wms?request=GetLegendGraphic&format=image/png&layer=massgis:GISDATA.DAMS_PT' alt='Dams Legend'>";
+  }
+ }
+
+// Listen for when layers are added or removed and update the legend accordingly
+map.on('overlayadd', function(eventLayer) {
+  legend.addTo(map);  // Ensure the legend is added to the map
+  updateLegend(eventLayer.name);  // Update legend when a layer is added
+});
+
+map.on('overlayremove', function(eventLayer) {
+  // Remove legend if no relevant layers are active
+  map.removeControl(legend);
+});
+
+// Modify the switchScene function to use Marzipano's scene switching logic
+function switchScene(sceneId) {
+    var scene = findSceneById(sceneId);  // Use Marzipano's findSceneById to get the scene object
+    if (scene) {
+        scene.scene.switchTo();  // Use Marzipano's scene switch method
+        console.log("Switched to scene: " + sceneId);
+    } else {
+        console.error('Scene not found: ' + sceneId);
+    }
+}
+
+
+</script>
+
+</body>
+</html>

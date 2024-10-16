@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project Title</title>
+<meta charset="utf-8">
+<meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
+<style> @-ms-viewport { width: device-width; } </style>
+<link rel="stylesheet" href="vendor/reset.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+<!-- Add your custom styling -->
+<style>
+  #dischargeDataLink {
+      position: absolute;
+      bottom: 10px;  /* Adjust to place below your map */
+      right: 10px;   /* Adjust the right side position */
+      background-color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+      z-index: 1001;  /* Ensure it appears above other elements */
+  }
+  #dischargeDataLink:hover {
+      text-decoration: underline;
+  }
+  
+  #welcomeBox {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  width: 300px;
+  background-color: rgba(255, 255, 255, 0.8);  /* White background with slight transparency */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);    /* Subtle shadow for a pop-out effect */
+  font-family: Arial, sans-serif;
+  z-index: 1001;  /* Ensure it's above other elements */
+}
+
+#welcomeBox h2 {
+  text-align: center;   /* Center the "Welcome!" title */
+  margin-top: 0 0 5px 0;
+  color: #2E3B4E
+}
+
+#welcomeBox p {
+  text-align: left;     /* Left-align the rest of the text */
+  margin: 0 0 10px 0;   /* Adjust margins to space out paragraphs */
+  font-size: 14px;      /* Optional: adjust font size for readability */
+  color: #2E3B4E
+}
+</style>
+
+
+</head>
+<body class="multiple-scenes ">
+
+<!-- Link to USGS Real-time discharge data -->
+<a id="dischargeDataLink" href="https://waterdata.usgs.gov/monitoring-location/01103050/#parameterCode=00065&period=P7D&showMedian=false" target="_blank">
+    Real-time discharge data
+</a>
+
+<div id="welcomeBox">
+  <h2>Welcome!</h2>
+  <p>Use your mouse to click and drag around the scene, and click the arrows, the dots on the map, or the scene list on the left to navigate upstream or downstream.</p>
+  <p>To toggle layers in the map, use the icon in the top right. If you'd like to see real-time water data for the Mystic River, use the link in the bottom right of the page.</p>
+  <p>Be sure to click on the information icons for descriptions of important features.</p>
+</div>
+
+<div id="pano"></div>
+
+<div id="sceneList">
+  <ul class="scenes">
+    
+      <a href="javascript:void(0)" class="scene" data-id="0-frames_0038">
+        <li class="text">1 - Dugger Park</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="1-frames_0039">
+        <li class="text">2</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="2-frames_0040">
+        <li class="text">3</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="3-frames_0041">
+        <li class="text">4</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="4-frames_0042">
+        <li class="text">5</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="5-frames_0043">
+        <li class="text">6 - Harvard Ave. Bridge</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="6-frames_0044">
+        <li class="text">7</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="7-frames_0045">
+        <li class="text">8</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="8-frames_0046">
+        <li class="text">9</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="9-frames_0047">
+        <li class="text">10</li>
+      </a>
+    
+      <a href="javascript:void(0)" class="scene" data-id="10-frames_0048">
+        <li class="text">11</li>
+      </a>
+    
+  </ul>
+</div>
+
+
+<script>
+// Function to show or hide the welcome box based on the current scene
+function toggleWelcomeBox(currentSceneId) {
+  var welcomeBox = document.getElementById('welcomeBox');
+  
+  // Check if the current scene is "1 - Dugger Park"
+  if (currentSceneId === '0-frames_0038') {  // Replace with the data-id of your scene
+    welcomeBox.style.display = 'block';  // Show the welcome box
+  } else {
+    welcomeBox.style.display = 'none';   // Hide the welcome box
+  }
+}
+
+
+
+// Ensure the welcome box is visible on page load for the default scene
+document.addEventListener("DOMContentLoaded", function() {
+  toggleWelcomeBox('0-frames_0038');  // Call the function to show the welcome box for the initial scene
+});
+</script>
+
+<div id="titleBar">
+  <h1 class="sceneName"></h1>
+</div>
+
+<a href="javascript:void(0)" id="autorotateToggle">
+  <img class="icon off" src="img/play.png">
+  <img class="icon on" src="img/pause.png">
+</a>
+
+<a href="javascript:void(0)" id="fullscreenToggle">
+  <img class="icon off" src="img/fullscreen.png">
+  <img class="icon on" src="img/windowed.png">
+</a>
+
+<a href="javascript:void(0)" id="sceneListToggle">
+  <img class="icon off" src="img/expand.png">
+  <img class="icon on" src="img/collapse.png">
+</a>
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+  <img class="icon" src="img/up.png">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+  <img class="icon" src="img/down.png">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+  <img class="icon" src="img/left.png">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+  <img class="icon" src="img/right.png">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+  <img class="icon" src="img/plus.png">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+  <img class="icon" src="img/minus.png">
+</a>
+
+<script src="vendor/screenfull.min.js" ></script>
+<script src="vendor/bowser.min.js" ></script>
+<script src="vendor/marzipano.js" ></script>
+
+<script src="data.js"></script>
+<script src="index.js"></script>
+<div id="map" style="width: 400px; height: 300px; position: absolute; top: 60px; right: 10px; z-index: 1000;"></div>
+
+
+<script>
+
+
+// MassGIS WMS layers setup
+var massGISWMSUrl = "https://gis-prod.digital.mass.gov/geoserver/wms";
+
+// Add MassMapper WMS layer
+var massMapperWMS = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.IMG_SHADEDRELIEF_LIDAR',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Define the different map layers
+var osmLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+});
+
+var satelliteLayer = L.tileLayer('https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
+    attribution: '&copy; Google'
+});
+
+
+// Add the DF__MIGRATORY_HABITAT_ARC layer
+var smeltSpawningHabitat = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.DF_MIGRATORY_HABITAT_ARC',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Add the Dams layer
+var Dams = L.tileLayer.wms("https://gis-prod.digital.mass.gov/geoserver/wms", {
+    layers: 'massgis:GISDATA.DAMS_PT',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'MassGIS'
+});
+
+// Add the new Shaded Relief ArcGIS layer
+var shadedReliefLayer = L.tileLayer('https://tiles.arcgis.com/tiles/hGdibHYSPO59RG1h/arcgis/rest/services/LiDAR_ShadedRelief/MapServer/tile/{z}/{y}/{x}', {
+    attribution: 'Shaded Relief &copy; <a href="https://www.arcgis.com/home/item.html?id=5fb17dfad618421f8d2513a805a2a7b5">ArcGIS</a>'
+});
+
+// Initialize the Leaflet map
+var map = L.map('map', {
+  center: [42.4189, -71.1422],  // Default location
+  zoom: 13,                     // Default zoom level
+  layers: [shadedReliefLayer]  // Layers that are visible on load
+});
+	
+// Add the default layer (OpenStreetMap) to the map
+osmLayer.addTo(map);
+
+fetch('https://rivertours.s3.us-east-2.amazonaws.com/Waterline.geojson')  // Replace with your actual S3 URL
+  .then(response => response.json())
+  .then(data => {
+    // Define the style function based on the numerical id
+    function style(feature) {
+      var fillColor;
+      switch (feature.properties.id) {  // Correct lowercase id, now compared as a number
+        case 1978:
+          fillColor = 'rgba(173, 216, 150, 0.5)';  // Light blue (50% transparent)
+          break;
+        case 1955:
+          fillColor = 'rgba(255, 160, 160, 0.5)';  // Medium blue (50% transparent)
+          break;
+        case 1939:
+          fillColor = 'rgba(70, 130, 180, 0.5)';   // Darker blue (50% transparent)
+          break;
+        default:
+          fillColor = 'rgba(173, 216, 230, 0.5)';  // Default color if id doesn't match
+      }
+
+      return {
+        color: "#808080",  // Dark gray outline
+        weight: 1,         // Thin outline
+        fillColor: fillColor,
+        fillOpacity: 0.5   // 50% transparency for the fill
+      };
+    }
+
+    // Create the GeoJSON layer with the style function
+    var geojsonLayer = L.geoJSON(data, {
+      style: style  // Apply the style function
+    });
+
+    // Define overlay layers after geojsonLayer is created
+    var overlayLayers = {
+      "Historic Channels": geojsonLayer,
+	  "Migratory Fish Habitat": smeltSpawningHabitat,
+	  "Dams": Dams
+    };
+
+    // Add base maps and overlay layers to the layer control
+    var layerControl = L.control.layers(baseMaps, overlayLayers).addTo(map);
+
+// Add a custom legend control
+var legend = L.control({ position: "topright" });
+
+legend.onAdd = function (map) {
+  var div = L.DomUtil.create("div", "legend");
+  div.innerHTML = "<h4>Legend</h4>";  // Initial legend title
+  return div;
+};
+
+// Function to update the legend based on the visible layer
+function updateLegend(layerName) {
+  // Make sure the legend div exists before trying to update it
+  var div = document.querySelector('.legend');
+  
+  if (!div) {
+    console.error("Legend div not found.");
+    return; // Exit if the legend div doesn't exist
+  }
+
+  // Clear the current legend content
+  div.innerHTML = "<h4>Legend</h4>";
+
+  // GeoJSON layer legend
+  if (layerName === 'Historic Channels') {
+    div.innerHTML += '<i style="background: rgba(173, 216, 230, 0.5); border: 1px solid #808080;"></i> 1978 (Green)<br>';
+    div.innerHTML += '<i style="background: rgba(100, 149, 237, 0.5); border: 1px solid #808080;"></i> 1955 (Red)<br>';
+    div.innerHTML += '<i style="background: rgba(70, 130, 180, 0.5); border: 1px solid #808080;"></i> 1939 (Blue)<br>';
+  }
+
+  // WMS layer: Migratory Habitat Legend
+  if (layerName === 'Migratory Fish Habitat') {
+    div.innerHTML += "<img src='https://gis-prod.digital.mass.gov/geoserver/wms?request=GetLegendGraphic&format=image/png&layer=massgis:GISDATA.DF_MIGRATORY_HABITAT_ARC' alt='Migratory Habitat Legend'>";
+  }
+  
+  // Dams layer legend
+  if (layerName === 'Dams') {
+    div.innerHTML += "<img src='https://gis-prod.digital.mass.gov/geoserver/wms?request=GetLegendGraphic&format=image/png&layer=massgis:GISDATA.DAMS_PT' alt='Dams Legend'>";
+  }
+}
+
+// Listen for when layers are added or removed and update the legend accordingly
+map.on('overlayadd', function(eventLayer) {
+  legend.addTo(map);  // Ensure the legend is added to the map
+  updateLegend(eventLayer.name);  // Update legend when a layer is added
+});
+
+map.on('overlayremove', function(eventLayer) {
+  // Remove legend if no relevant layers are active
+  map.removeControl(legend);
+});
+
+// Optionally add the GeoJSON layer to the map by default
+
+legend.addTo(map);  // Add the legend by default if the GeoJSON layer is visible initially
+})
+  .catch(error => console.error('Error loading GeoJSON:', error));
+
+
+
+
+
+
+
+
+// List of GPS coordinates for each scene (example with 4 scenes, add more as needed)
+var markers = [
+    
+    { lat: 42.41567, lon: -71.13886, title: '1 - Dugger Park', sceneId: '0-frames_0038' },
+    { lat: 42.41564, lon: -71.13877, title: '2', sceneId: '1-frames_0039' },
+    { lat: 42.41561, lon: -71.13869, title: '3', sceneId: '2-frames_0040' },
+    { lat: 42.41557, lon: -71.13857, title: '4', sceneId: '3-frames_0041' },
+    { lat: 42.41555, lon: -71.13851, title: '5', sceneId: '4-frames_0042' },
+    { lat: 42.41551, lon: -71.13838, title: '6 - Harvard Ave. Bridge', sceneId: '5-frames_0043' },
+    { lat: 42.41547, lon: -71.13825, title: '7', sceneId: '6-frames_0044' },
+    { lat: 42.41541, lon: -71.13806, title: '8', sceneId: '7-frames_0045' },
+    { lat: 42.41535, lon: -71.13790, title: '9', sceneId: '8-frames_0046' },
+    { lat: 42.41532, lon: -71.13776, title: '10', sceneId: '9-frames_0047' },
+    { lat: 42.41528, lon: -71.13756, title: '11', sceneId: '10-frames_0048' }
+	
+];
+
+// Marker style settings for small circle markers
+  var markerStyle = {
+      radius: 5,  // Small circle size
+      fillColor: "#3388ff",  // Customize circle fill color
+      color: "#3388ff",  // Customize circle border color
+      weight: 1,
+      opacity: 1,
+      fillOpacity: 0.8
+  };
+
+  // Add circle markers to the map
+  markers.forEach(function(marker) {
+      L.circleMarker([marker.lat, marker.lon], markerStyle)
+        .addTo(map)
+        .on('click', function() {
+            switchToSceneById(marker.sceneId);  // Switch directly to the scene on click
+        });
+  });
+
+
+
+// Define the base layers (to be toggled)
+var baseMaps = {
+    "OpenStreetMap": osmLayer,
+    "Satellite View": satelliteLayer,
+"Hillshade": shadedReliefLayer
+};
+
+
+// Add the layer control to the map (for toggling between layers)
+L.control.layers(baseMaps, overlayLayers).addTo(map);
+
+// Modify the switchScene function to use Marzipano's scene switching logic
+function switchScene(sceneId) {
+    var scene = findSceneById(sceneId);  // Use Marzipano's findSceneById to get the scene object
+    if (scene) {
+        scene.scene.switchTo();  // Use Marzipano's scene switch method
+        console.log("Switched to scene: " + sceneId);
+    } else {
+        console.error('Scene not found: ' + sceneId);
+    }
+}
+</script>
+</body>
+</html>
